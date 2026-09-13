@@ -1,0 +1,3 @@
+# app-ads.txt - Uri Porat
+# Covers every app under AdMob publisher pub-9229540758887859.
+google.com, pub-9229540758887859, DIRECT, f08c47fec0942fa0
