@@ -386,3 +386,6 @@ html[lang="he"] .lede { font-family: var(--he-sans); }
   .series .story { padding-inline-start: 12px; }
   .series-head { padding-inline-start: 12px; }
 }
+
+/* Section headings: one line where there is room */
+.section h2 { max-width: none; }
