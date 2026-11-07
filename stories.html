@@ -11,6 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css?v=2">
+  <style>
+    /* ?author in the URL adds " / אורי פורת" next to every story title */
+    .story h2 .byline { font-weight: 400; font-size: .6em; color: var(--muted); white-space: nowrap; }
+  </style>
 </head>
 <body>
 
@@ -382,6 +386,18 @@
     </div>
   </footer>
 
+  <script>
+    // stories.html?author → show " / אורי פורת" next to each story title
+    (function () {
+      if (!new URLSearchParams(location.search).has('author')) return;
+      document.querySelectorAll('.story summary h2').forEach(function (h) {
+        var b = document.createElement('span');
+        b.className = 'byline';
+        b.textContent = ' / אורי פורת';
+        h.appendChild(b);
+      });
+    })();
+  </script>
   <script src="assets/main.js"></script>
 </body>
 </html>
