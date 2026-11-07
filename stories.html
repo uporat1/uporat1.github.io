@@ -14,6 +14,8 @@
   <style>
     /* ?author in the URL adds " / אורי פורת" next to every story title */
     .story h2 .byline { font-weight: 400; font-size: .6em; color: var(--muted); white-space: nowrap; }
+    /* ?noexcerpt hides the teaser line under each title */
+    .no-excerpt .story .excerpt { display: none; }
   </style>
 </head>
 <body>
@@ -387,9 +389,13 @@
   </footer>
 
   <script>
-    // stories.html?author → show " / אורי פורת" next to each story title
+    // Optional URL parameters (can be combined: stories.html?author&noexcerpt)
+    //   ?author    → show " / אורי פורת" next to each story title
+    //   ?noexcerpt → hide the teaser line under each title
     (function () {
-      if (!new URLSearchParams(location.search).has('author')) return;
+      var q = new URLSearchParams(location.search);
+      if (q.has('noexcerpt')) document.documentElement.classList.add('no-excerpt');
+      if (!q.has('author')) return;
       document.querySelectorAll('.story summary h2').forEach(function (h) {
         var b = document.createElement('span');
         b.className = 'byline';
